@@ -1,4 +1,4 @@
-startup-summer-2022-task.netlify.app
+https://startup-summer-2022-task.netlify.app/
 
 # Getting Started with Create React App
 
