@@ -5,7 +5,7 @@ import Initial from '../components/initial.js';
 import NotFound from '../components/notFound.js';
 import Loader from '../components/loader.js';
 
-const octokit = new Octokit({ auth: `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` });
+const octokit = new Octokit({ auth: `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` });
 
 function Page() {
   const [userData, setUserData] = useState(null);
@@ -31,6 +31,7 @@ function Page() {
           setUserData(responseUser.data);
           setUserRepoData(responseRepo.data);
           setIsLoading(false);
+          console.log(responseUser, responseRepo);
         }, 1000);
       } catch (error) {
         setIsNotFound(true);
