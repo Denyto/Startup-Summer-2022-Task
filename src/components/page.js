@@ -5,7 +5,7 @@ import Initial from '../components/initial.js';
 import NotFound from '../components/notFound.js';
 import Loader from '../components/loader.js';
 
-const octokit = new Octokit({ auth: `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` });
+const octokit = new Octokit();
 
 function Page() {
   const [userData, setUserData] = useState(null);
