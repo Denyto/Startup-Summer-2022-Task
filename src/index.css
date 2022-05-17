@@ -1,13 +1,158 @@
-body {
+* {
+  font-size: 10px;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+  height: 100vh;
+  background: #E5E5E5;
 }
+
+.logo {
+  display: flex;
+  margin-right: 2.2rem;
+}
+
+.header {
+  background-color: #0064EB;
+  display: flex;
+  align-items: center;
+  padding: 1.6rem 4.1rem 1.6rem 4.1rem;
+}
+
+input {
+  width: 50rem;
+  height: 3.8rem;
+  background: #fff url("./assets/img/search.png") 1.3rem 1.3rem no-repeat;
+  padding-left: 4rem;
+  border-radius: 6px;
+  font-family: "Inter", sans-serif;
+  font-size: 1.4rem;
+  font-weight: 400;
+  border: transparent;
+  display: flex;
+  align-items: center;
+}
+
+.state {
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.state p {
+  font-size: 2.2rem;
+  text-align: center;
+  color: #808080;
+  margin-top: 4.6rem;
+}
+.state_content {
+  width: 23rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.state_loader {
+  border: 16px solid #f3f3f3;
+  /* Light grey */
+  border-top: 16px solid #0064EB;
+  /* Blue */
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.main {
+  height: 60vh;
+  display: flex;
+  justify-content: space-between;
+  padding: 3.9rem 5.7rem;
+}
+
+.user {
+  width: 29%;
+}
+.user_foto {
+  margin-bottom: 2.9rem;
+}
+.user_foto img {
+  width: 100%;
+  border-radius: 50%;
+}
+.user_name {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 2.6rem;
+  margin-bottom: 1.2rem;
+}
+.user_nick {
+  font-size: 1.8rem;
+  color: #0064eb;
+  text-decoration: none;
+}
+.user_data {
+  display: flex;
+  align-items: center;
+  margin-top: 2.6rem;
+}
+.user_data_element {
+  display: flex;
+  align-items: center;
+  margin: 0 2rem 0 0;
+}
+.user_data_element p {
+  font-size: 1.6rem;
+  margin: 0 0.9rem;
+}
+
+.repo {
+  width: 69%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.repo_list {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: auto;
+}
+.repo_element {
+  background: #ffffff;
+  border-radius: 6px;
+  padding: 2.4rem 3.2rem;
+  margin: 1.2rem 0;
+}
+.repo_element_title {
+  font-weight: 500;
+  font-size: 2.4rem;
+  color: #0064EB;
+}
+.repo_element_discription {
+  font-size: 1.6rem;
+  margin-top: 1.6rem;
+}
+.repo_element a {
+  text-decoration: none;
+}
+
+h1 {
+  font-weight: 600;
+  font-size: 3.2rem;
+  margin-bottom: 2.9rem;
+}
+
+/*# sourceMappingURL=index.css.map */

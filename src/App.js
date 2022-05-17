@@ -1,14 +1,11 @@
-import logo from './logo.svg';
-import './App.css';
+import Page from './components/page.js';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>DENYTO DENYTO</p>
-      </header>
-    </div>
+    <>
+      <Page></Page>     
+    </>
   );
 }
 
