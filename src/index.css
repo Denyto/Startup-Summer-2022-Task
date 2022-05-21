@@ -10,7 +10,7 @@
 }
 @media (max-width: 665px) {
   * {
-    font-size: 8px;
+    font-size: 9px;
   }
 }
 
@@ -40,6 +40,11 @@ body {
   display: flex;
   align-items: center;
 }
+@media (max-width: 665px) {
+  .header {
+    padding: 1rem 1.1rem 1rem 1.1rem;
+  }
+}
 
 input {
   width: 50rem;
@@ -53,6 +58,10 @@ input {
   border: transparent;
   display: flex;
   align-items: center;
+}
+
+.disabled {
+  pointer-events: none;
 }
 
 .state {
@@ -75,14 +84,12 @@ input {
   align-items: center;
 }
 .state_loader {
-  border: 16px solid #f3f3f3;
-  /* Light grey */
-  border-top: 16px solid #0064EB;
-  /* Blue */
+  border: 5px solid #f3f3f3;
+  border-top: 5px solid #0064eb;
   border-radius: 50%;
   width: 120px;
   height: 120px;
-  animation: spin 2s linear infinite;
+  animation: spin 3s linear infinite;
 }
 .state_note {
   font-size: 2rem;
@@ -113,6 +120,11 @@ input {
   .main_container {
     flex-direction: column;
     align-items: center;
+  }
+}
+@media (max-width: 665px) {
+  .main {
+    padding: 3.9rem 3.6rem;
   }
 }
 

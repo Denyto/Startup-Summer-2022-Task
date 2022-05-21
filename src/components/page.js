@@ -13,12 +13,14 @@ function Page() {
   const [isLoading, setIsLoading] = useState(false);
   const [isNotFound, setIsNotFound] = useState(false);
   const [isInitial, setIsInitial] = useState(true);
-  const [isNote, setIsNote] = useState(null)
+  const [isNote, setIsNote] = useState(null);
+  const [isDisable, setIsDisable] = useState(false);
 
   async function search(e) {
     if (e.code === 'Enter') {
       setIsNotFound(false);
       setIsInitial(false);
+      setIsDisable(true);
       try {
         setIsLoading(true);
         const responseUser = await octokit.request('GET /users/{username}', {
@@ -66,6 +68,7 @@ function Page() {
         setIsLoading(false);
       }
       e.target.value = '';
+      setIsDisable(false);
     }
   }
 
@@ -77,7 +80,12 @@ function Page() {
             <div className="logo">
               <img src={require('../assets/img/git.png')} className="App-logo" alt="logo" />
             </div>
-            <input type="text" onKeyDown={search}></input>
+            <input
+              type="text"
+              disabled={isDisable}
+              placeholder="Enter GitHub username"
+              onKeyDown={search}
+            ></input>
           </div>
         </header>
       </div>

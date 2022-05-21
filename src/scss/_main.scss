@@ -9,6 +9,9 @@
       align-items: center;
     }
   }
+  @include media-tablet {
+      padding: 3.9rem 3.6rem;
+    }
 }
 
 .user {

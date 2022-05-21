@@ -10,6 +10,9 @@
     display: flex;
     align-items: center;
   }
+  @include media-tablet {
+    padding: 1rem 1.1rem 1rem 1.1rem;
+  }
 }
 
 input {
@@ -24,4 +27,8 @@ input {
   border: transparent;
   display: flex;
   align-items: center;
+}
+
+.disabled {
+  pointer-events: none;
 }
