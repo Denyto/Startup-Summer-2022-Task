@@ -112,7 +112,6 @@ input {
   padding: 3.9rem 5.6rem;
 }
 .main_container {
-  height: 60vh;
   display: flex;
   justify-content: space-between;
 }
@@ -124,7 +123,7 @@ input {
 }
 @media (max-width: 665px) {
   .main {
-    padding: 3.9rem 3.6rem;
+    padding: 3.9rem 2.6rem;
   }
 }
 

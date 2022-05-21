@@ -1,7 +1,6 @@
 .main {
   padding: 3.9rem 5.6rem;
   &_container {
-    height: 60vh;
     display: flex;
     justify-content: space-between;
     @include media-tablet {
@@ -10,7 +9,7 @@
     }
   }
   @include media-tablet {
-      padding: 3.9rem 3.6rem;
+      padding: 3.9rem 2.6rem;
     }
 }
 
