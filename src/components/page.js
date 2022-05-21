@@ -18,7 +18,7 @@ function Page() {
   const [batton, setBatton] = useState('xx');
 
   async function search(e) {
-     setBatton(e.code);
+     setBatton(e.keyCode);
     if (e.code === 'Enter') {
       setIsNotFound(false);
       setIsInitial(false);
