@@ -1,9 +1,9 @@
 import { Octokit } from '@octokit/core';
 import { useState } from 'react';
-import Main from '../components/main.js';
-import Initial from '../components/initial.js';
-import NotFound from '../components/notFound.js';
-import Loader from '../components/loader.js';
+import Main from './main';
+import Initial from './initial';
+import NotFound from './notFound';
+import Loader from './loader';
 
 const octokit = new Octokit();
 
@@ -13,6 +13,7 @@ function Page() {
   const [isLoading, setIsLoading] = useState(false);
   const [isNotFound, setIsNotFound] = useState(false);
   const [isInitial, setIsInitial] = useState(true);
+  const [isNote, setIsNote] = useState(null)
 
   async function search(e) {
     if (e.code === 'Enter') {
@@ -23,19 +24,46 @@ function Page() {
         const responseUser = await octokit.request('GET /users/{username}', {
           username: e.target.value,
         });
+        setUserData(responseUser.data);
+        const responseRepo = [];
 
-        const responseRepo = await octokit.request('GET /users/{username}/repos', {
-          username: e.target.value,
-        });
-        setTimeout(() => {
-          setUserData(responseUser.data);
-          setUserRepoData(responseRepo.data);
-          setIsLoading(false);
-          console.log(responseUser, responseRepo);
-        }, 1000);
+        if (responseUser.data.public_repos > 100) {
+          setIsNote(responseUser.data.public_repos);
+          let pages = Math.trunc(responseUser.data.public_repos / 100 + 1);
+          let urls = [];
+          for (let i = 1; i <= pages; i++) {
+            urls.push(
+              await octokit.request('GET /users/{username}/repos', {
+                username: e.target.value,
+                per_page: 100,
+                page: i,
+              })
+            );
+          }
+          Promise.all(urls).then((responses) =>
+            responses.forEach((response) => {
+              response.data.forEach((el) => responseRepo.push(el));
+              setUserRepoData(responseRepo);
+              setIsLoading(false);
+              setIsNote(null);
+            })
+          );
+        } else {
+          octokit
+            .request('GET /users/{username}/repos', {
+              username: e.target.value,
+              per_page: 100,
+            })
+            .then((res) => {
+              res.data.forEach((el) => responseRepo.push(el));
+              setUserData(responseUser.data);
+              setUserRepoData(responseRepo);
+              setIsLoading(false);
+            });
+        }
       } catch (error) {
         setIsNotFound(true);
-        console.log('NOT FOUND');
+        setIsLoading(false);
       }
       e.target.value = '';
     }
@@ -45,16 +73,20 @@ function Page() {
     <>
       <div>
         <header className="header">
-          <div className="logo">
-            <img src={require('../assets/img/git.png')} className="App-logo" alt="logo" />
+          <div className="container header_container">
+            <div className="logo">
+              <img src={require('../assets/img/git.png')} className="App-logo" alt="logo" />
+            </div>
+            <input type="text" onKeyDown={search}></input>
           </div>
-          <input type="text" onKeyDown={search}></input>
         </header>
       </div>
       {isInitial && <Initial></Initial>}
-      {!isLoading && !isInitial ? <Main userData={userData} userRepo={userRepoData}></Main> : null}
+      {!isLoading && !isInitial && !isNotFound ? (
+        <Main userData={userData} userRepo={userRepoData}></Main>
+      ) : null}
       {isNotFound && <NotFound></NotFound>}
-      {isLoading && <Loader></Loader>}
+      {isLoading && <Loader note={isNote}></Loader>}
     </>
   );
 }

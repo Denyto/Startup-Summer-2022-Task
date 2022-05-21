@@ -1,25 +1,27 @@
 .logo {
-    display: flex;
-    margin-right: 2.2rem;
+  display: flex;
+  margin-right: 2.2rem;
 }
 
 .header {
-    background-color: #0064EB;
+  background-color: #0064eb;
+  padding: 1.6rem 4.1rem 1.6rem 4.1rem;
+  &_container {
     display: flex;
     align-items: center;
-    padding: 1.6rem 4.1rem 1.6rem 4.1rem;
+  }
 }
 
 input {
-    width: 50rem;
-    height: 3.8rem;
-    background: #fff url("./assets/img/search.png") 1.3rem 1.3rem no-repeat;
-    padding-left: 4rem;
-    border-radius: 6px;
-    font-family: 'Inter', sans-serif;
-    font-size: 1.4rem;
-    font-weight: 400;
-    border: transparent;
-    display: flex;
-    align-items: center;
+  width: 50rem;
+  height: 3.8rem;
+  background: #fff url('./assets/img/search.png') 1.3rem 1.3rem no-repeat;
+  padding-left: 4rem;
+  border-radius: 6px;
+  font-family: 'Inter', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 400;
+  border: transparent;
+  display: flex;
+  align-items: center;
 }

@@ -1,13 +1,20 @@
 .main {
-  height: 60vh;
-  display: flex;
-  justify-content: space-between;
-  padding: 3.9rem 5.7rem;
+  padding: 3.9rem 5.6rem;
+  &_container {
+    height: 60vh;
+    display: flex;
+    justify-content: space-between;
+    @include media-tablet {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
 }
 
 .user {
   width: 29%;
   &_foto {
+    max-width: 28rem;
     margin-bottom: 2.9rem;
     & img {
       width: 100%;
@@ -27,17 +34,22 @@
   }
   &_data {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
-    margin-top: 2.6rem;
     &_element {
       display: flex;
       align-items: center;
-      margin: 0 2rem 0 0;
+      margin: 2.6rem 2rem 0 0;
       & p {
         font-size: 1.6rem;
         margin: 0 0.9rem;
+        white-space: nowrap;
       }
     }
+  }
+  @include media-tablet {
+    width: 45%;
+    margin-bottom: 2rem;
   }
 }
 
@@ -47,35 +59,43 @@
   display: flex;
   flex-direction: column;
   &_list {
-    height: 100%;
+    min-height: 55rem;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    overflow: auto;
+    margin-bottom: 1.2rem;
   }
   &_element {
+    height: 12rem;
     background: #ffffff;
     border-radius: 6px;
     padding: 2.4rem 3.2rem;
     margin: 1.2rem 0;
+    overflow: hidden;
+    border: 10px #fff solid;
     &_title {
       font-weight: 500;
       font-size: 2.4rem;
-      
-      color: #0064EB;
+      color: #0064eb;
     }
     &_discription {
-        font-size: 1.6rem;
-        margin-top: 1.6rem;
+      font-size: 1.6rem;
+      margin-top: 1rem;
     }
     & a {
       text-decoration: none;
     }
   }
+  @include media-tablet {
+     width: 100%;
+    }
 }
 
 h1 {
   font-weight: 600;
   font-size: 3.2rem;
-  margin-bottom: 2.9rem;
+  margin-bottom: 1.9rem;
+}
+
+.pagination {
+  justify-content: flex-end;
 }
