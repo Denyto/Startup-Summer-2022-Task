@@ -15,8 +15,10 @@ function Page() {
   const [isInitial, setIsInitial] = useState(true);
   const [isNote, setIsNote] = useState(null);
   const [isDisable, setIsDisable] = useState(false);
+  const [batton, setBatton] = useState('xx');
 
   async function search(e) {
+     setBatton(e.code);
     if (e.code === 'Enter') {
       setIsNotFound(false);
       setIsInitial(false);
@@ -80,6 +82,7 @@ function Page() {
             <div className="logo">
               <img src={require('../assets/img/git.png')} className="App-logo" alt="logo" />
             </div>
+            <div style={{fontSize: '2rem'}}>{batton}</div>
             <input
               type="text"
               disabled={isDisable}
