@@ -5,18 +5,6 @@ import Empty from './empty';
 function Main({ userData, userRepo }) {
   const items = [...Array(userData.public_repos).keys()];
 
-  // async function getNewPage() {
-  //   setIsLoading(true);
-  //   const octokit = new Octokit();
-  //   const newResponseRepo = await octokit.request('GET /users/{username}/repos', {
-  //     username: userData.login,
-  //     per_page: 100,
-  //     page: 2,
-  //   });
-  //   console.log(newResponseRepo);
-  //   setTimeout(() => setIsLoading(false), 500);
-  // }
-
   function Items({ currentItems }) {
     return (
       <div className="repo_list">
@@ -120,28 +108,6 @@ function Main({ userData, userRepo }) {
           ) : (
             <Empty></Empty>
           )}
-          {/* {userRepo.length > 0 ? (
-            <>
-              <h1>Repositories ({userRepo.length})</h1>
-              <div className="repo_list">
-                {userRepo.map((el) => (
-                  <div className="repo_element" key={el.id}>
-                    <a
-                      href={el.html_url}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="repo_element_title"
-                    >
-                      {el.name}
-                    </a>
-                    <p className="repo_element_discription">{el.description}</p>
-                  </div>
-                ))}
-              </div>
-            </>
-          ) : (
-            <Empty></Empty>
-          )} */}
         </div>
       </div>
     </section>
